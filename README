@@ -1,1 +1,30 @@
-So this is the folder that would contain the code.
+So there are two file:
+
+"CodeToPut.c "
+
+and 
+
+"motorTest.c"
+
+
+##Step 1 :
+
+First put "motor.c" on arduino and then play it.
+The code will make arduino 
+
+-move forward for 3 seconds
+-move backward for 3 seconds
+-move clockwise for 3 seconds
+-move anticlockwise for 3 seconds
+
+and repeat.....
+
+If this is how the bot moves due to the above code. The motors are configured correctly and proceed for the next step.
+
+
+#Step 2 :
+
+Load the file CodeToPut.c on the arduino board and run it on the arena. The bot should follow line and follow that 90 degree turn too.
+
+
+##Note: To load a file onto arduino board. Copy the content of that file as it is, to the arduino software and click on upload button.
