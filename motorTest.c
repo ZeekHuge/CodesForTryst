@@ -113,7 +113,7 @@ void loop(){
 	delay(3000);
 
 	//move anticlockwise
-	_rightMotorBackward;
+	_rightMotorForward;
 	_leftMotorBackward;
 
 	delay(3000);
