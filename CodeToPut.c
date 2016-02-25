@@ -1,7 +1,7 @@
 
 /*
 *
-* Copy all the code exactly as it is in the arduino and load it to the board
+* Copy all the code exactly as it is to the arduino and load it to the board
 *
 */
 
@@ -28,6 +28,9 @@
 /******************************************************************************/
 /******************************************************************************/
 /* Sensor configurations */
+
+
+
 
 #define _isBlack(pinNumber) !digitalRead(pinNumber)
 #define _isWhite(pinNumber) digitalRead(pinNumber)
@@ -72,6 +75,17 @@ _isWhite(LS) && _isWhite(LSa) &&  _isWhite(RS) && _isWhite(RSa) && _isWhite(CS)
 #define _rightMotorBackward  digitalWrite(RM1,HIGH);digitalWrite(RM2,LOW)
 #define _rightMotorStop      digitalWrite(RM1,LOW);digitalWrite(RM2,LOW)
 
+
+
+
+
+/******************************************************************************/
+/******************************************************************************/
+/* Some User defined Functions */
+
+
+
+
 /******************************************************************************/
 /******************************************************************************/
 
@@ -104,9 +118,15 @@ void loop() {
   //move straight
   if( _straightAtBlackLine ) 
   {
- 
-    _leftMotorForward;
-    _rightMotorForward;
+    while(! ( _ifDeadEnd ||
+              _ifBlackLineIsOnRight||
+              _ifBlackLineIsOnLeft
+            )
+          ){
+
+     _leftMotorForward;
+      _rightMotorForward;
+    }
   }
 
 
@@ -114,9 +134,14 @@ void loop() {
   //turn right
   if( _ifBlackLineIsOnRight )   
   {
+    while(! ( _straightAtBlackLine ||
+              _ifBlackLineIsOnLeft ||
+            )
+          ){
 
-    _rightMotorBackward;
-    _leftMotorForward;
+      _rightMotorBackward;
+      _leftMotorForward;
+    }
   }
  
 
@@ -124,9 +149,14 @@ void loop() {
   // turn left
   if( _ifBlackLineIsOnLeft )  
   {
+    while(! ( _straightAtBlackLine ||
+              _ifBlackLineIsOnRight||
+            )
+          ){
       
-    _rightMotorForward;
-    _leftMotorBackward;   
+      _rightMotorForward;
+      _leftMotorBackward;   
+    }
   }
 
  
@@ -134,9 +164,15 @@ void loop() {
   //Stop moving
  if( _ifDeadEnd )
   {
+    while(! ( _straightAtBlackLine ||
+              _ifBlackLineIsOnRight||
+              _ifBlackLineIsOnLeft
+            )
+          ){
 
-    _leftMotorStop;
-    _rightMotorStop;
+      _leftMotorStop;
+      _rightMotorStop;
+    }
   }
   
 }

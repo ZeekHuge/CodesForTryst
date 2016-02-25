@@ -1,7 +1,7 @@
 
 /*
 *
-* Copy all the code exactly as it is in the arduino and load it to the board
+* Copy all the code exactly as it is to the arduino and load it to the board
 *
 */
 
@@ -29,13 +29,14 @@
 /******************************************************************************/
 /* Sensor configurations */
 
+
 #define _isBlack(pinNumber) !digitalRead(pinNumber)
 #define _isWhite(pinNumber) digitalRead(pinNumber)
 
 
 
 #define _straightAtBlackLine \
- _isWhite(RS) && _isWhite(RSa)  \
+_isWhite(RS) && _isWhite(RSa)  \
 && _isWhite(LS) && _isWhite(LSa) \
 && _isBlack(CS)
 
@@ -64,13 +65,13 @@ _isWhite(LS) && _isWhite(LSa) &&  _isWhite(RS) && _isWhite(RSa) && _isWhite(CS)
 /* Motor configurations */
 
 
-#define _leftMotorForward   digitalWrite(LM1,HIGH);digitalWrite(LM2,LOW)
-#define _leftMotorBackward  digitalWrite(LM1,LOW) ;digitalWrite(LM2,HIGH)
-#define _leftMotorStop      digitalWrite(LM1,LOW) ;digitalWrite(LM2,LOW)
+#define _leftMotorForward    digitalWrite(LM1,HIGH) ;digitalWrite(LM2,LOW)
+#define _leftMotorBackward   digitalWrite(LM1,LOW)  ;digitalWrite(LM2,HIGH)
+#define _leftMotorStop       digitalWrite(LM1,LOW)  ;digitalWrite(LM2,LOW)
 
-#define _rightMotorForward   digitalWrite(RM1,LOW);digitalWrite(RM2,HIGH)
-#define _rightMotorBackward  digitalWrite(RM1,HIGH);digitalWrite(RM2,LOW)
-#define _rightMotorStop      digitalWrite(RM1,LOW);digitalWrite(RM2,LOW)
+#define _rightMotorForward   digitalWrite(RM1,LOW)  ;digitalWrite(RM2,HIGH)
+#define _rightMotorBackward  digitalWrite(RM1,HIGH) ;digitalWrite(RM2,LOW)
+#define _rightMotorStop      digitalWrite(RM1,LOW)  ;digitalWrite(RM2,LOW)
 
 /******************************************************************************/
 /******************************************************************************/
